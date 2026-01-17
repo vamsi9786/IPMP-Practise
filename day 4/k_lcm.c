@@ -1,3 +1,6 @@
+// k-3 ones
+//then k==3 case               
+
 #include <stdio.h>
 typedef long long ll;
 int main(){
