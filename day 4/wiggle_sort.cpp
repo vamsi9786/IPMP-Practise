@@ -1,3 +1,5 @@
+/Method-1
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -25,3 +27,22 @@ public:
         }
     }
 };
+
+/ Method-2
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+class Solution {
+public:
+    void wiggleSort(vector<int> &nums) {
+        int l=nums.size();
+        for(int i=1;i<l;i++){
+            if( (i%2==0 && nums[i]>nums[i-1]) || (i%2==1 && nums[i]<nums[i-1])){
+                swap(nums[i],nums[i-1]);
+            }
+        }
+    }
+};
+    
