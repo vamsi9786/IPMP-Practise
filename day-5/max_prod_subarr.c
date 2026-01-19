@@ -11,8 +11,8 @@ int maxProduct(int* nums, int numsSize) {
             maxprod=minprod;
             minprod=temp;
         }
-        maxprod=(nums[i]>nums[i]*maxprod)?nums[i]:nums[i]*maxprod; //maxprod of subarr ending with idx i
-        minprod=(nums[i]<nums[i]*minprod)?nums[i]:nums[i]*minprod; //minprod of subarr ending with idx i
+        maxprod=(nums[i]>nums[i]*maxprod)?nums[i]:nums[i]*maxprod; //maxprod of subarr ending with idx i i.e we are considering arr till idx i
+        minprod=(nums[i]<nums[i]*minprod)?nums[i]:nums[i]*minprod; //minprod of subarr ending with idx i i.e we are considering arr till idx i
         ans=(ans>maxprod)?ans:maxprod;
     }
     return ans;
