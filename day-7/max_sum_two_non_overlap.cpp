@@ -1,3 +1,5 @@
+O(n^3)
+
 class Solution {
 public:
     int maxSumTwoNoOverlap(vector<int>& nums, int firstLen, int secondLen) {
@@ -46,5 +48,30 @@ public:
             }
         }
         return mx;
+    }
+};
+
+
+o(n)
+class Solution {
+public:
+    int maxSumTwoNoOverlap(vector<int>& nums, int firstLen, int secondLen) {
+        int n = nums.size();
+        vector<int> pre(n+1, 0); // prefix sums
+        for(int i=0; i<n; i++) pre[i+1] = pre[i] + nums[i];
+
+        auto maxSum = [&](int L, int M) {
+            int maxL = pre[L] - pre[0]; // sum of first L elements
+            int res = INT_MIN;
+            for(int i = L; i + M <= n; i++) {
+                int sumM = pre[i+M] - pre[i];      // current M-length window
+                res = max(res, maxL + sumM);      // combine with best L-window before it
+                maxL = max(maxL, pre[i+1] - pre[i+1-L]); // update best L-window ending at i
+            }
+            return res;
+        };
+
+        // Try both orders
+        return max(maxSum(firstLen, secondLen), maxSum(secondLen, firstLen));
     }
 };
