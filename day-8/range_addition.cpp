@@ -1,5 +1,11 @@
 O(n+m) Prefix Sum
 
+Algo:
+    1. add the increment at start idx and at idx==>(end_idx + 1) subtract the increment 
+            let inc =2; st=1 end=4
+                    0 2 0 0 0 -2
+                    0 2 2 2 2 0  prefix sum logic
+
 class Solution {
 public:
     //Prefix Sum
