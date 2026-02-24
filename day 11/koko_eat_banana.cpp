@@ -1,5 +1,9 @@
 Algorithm
-    1.  
+      1. intution: req k will be in between 1 and max of all piles wts.  (1 <= req cap <= max of all piles)
+      2. take low = 1 and high = max_wt
+      3. do binary search on low and high and mid=low+(high-low)/2 and check will it be sufficient for given hours 
+              (i). if yes, then reduce high = mid;
+              (ii). if no, increase low=mid+1;
 
 
 class Solution {
